@@ -120,8 +120,8 @@ class Chef::Application::Knife < Chef::Application
     Mixlib::Log::Formatter.show_time = false
     validate_and_parse_options
     quiet_traps
-    Chef::Knife.run(ARGV, options)
-    exit 0
+    exit_status = Chef::Knife.run(ARGV, options)
+    exit exit_status.to_i
   end
 
   private
